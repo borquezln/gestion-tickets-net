@@ -1,7 +1,7 @@
 # Modelo de dominio
 
-> **Fase 1 — Revisión 4.** Modelo en inglés. La entidad central es `Ticket`, con tipos `INCIDENT` y `TASK`.
-> Las decisiones D-01 a D-39 y las aclaraciones de la Revisión 4 están incorporadas. No se agregan campos históricos redundantes cuando la trazabilidad puede reconstruirse.
+> **Fase 1 — Modelo de dominio.** La entidad central es `Ticket`, con tipos `INCIDENT` y `TASK`.
+> Las decisiones D-01 a D-39 y las aclaraciones de la Fase 1 están incorporadas. No se agregan campos históricos redundantes cuando la trazabilidad puede reconstruirse.
 
 ## 1. Principios del modelo
 

@@ -1,7 +1,7 @@
 # Especificación funcional consolidada
 
-> **Fase 1 — Revisión 4.** Incorpora `docs/specification-definitions.md` como fuente de mayor prioridad.
-> Estado: propuesta para revisión. No se inició la Fase 2 ni se escribió código.
+> **Fase 1 — Especificación funcional.**
+> Estado: Fase 1 finalizada. No se escribió código ni se crearon proyectos.
 >
 > **Regla transversal:** ninguna regla de negocio del legado es válida sin aprobación explícita. Las reglas heredadas se clasifican en aprobadas, pendientes, reemplazadas o descartadas. No se asumen por provenir del PHP original.
 
@@ -9,7 +9,7 @@
 
 1. [Control documental](#1-control-documental)
 2. [Propósito, fuentes y prioridad](#2-propósito-fuentes-y-prioridad)
-3. [Cambios principales de la revisión 4](#3-cambios-principales-de-la-revisión-4)
+3. [Cambios principales de Fase 1](#3-cambios-principales-de-fase-1)
 4. [Contexto funcional y terminología](#4-contexto-funcional-y-terminología)
 5. [Actores y roles aprobados](#5-actores-y-roles-aprobados)
 6. [Clasificación de funcionalidades](#6-clasificación-de-funcionalidades)
@@ -31,10 +31,9 @@
 | Campo | Valor |
 |---|---|
 | Fase | 1 — Especificación funcional y diseño del dominio |
-| Revisión | 4 |
-| Estado | Propuesta para revisión y aprobación |
-| Fuente de mayor prioridad | `docs/specification-definitions.md` (no modificado) |
-| Fuente funcional original | `docs/definitions.md` (no modificado) |
+| Estado | Fase 1 finalizada |
+| Fuente de mayor prioridad | `docs/definitions/specification-definitions.md` (no modificado) |
+| Fuente funcional original | `docs/definitions/analysis-definitions.md` (no modificado) |
 | Evidencia del legado | `docs/analysis/*` (sólo informa; no aprueba reglas) |
 | Alcance | Documentación; sin código, sin proyectos, sin dependencias, sin migraciones |
 | Sistema legado | Conservado íntegramente en `/legacy`; no modificado |
@@ -51,11 +50,9 @@ Esta especificación consolida el comportamiento del sistema de gestión de tick
 
 | Prioridad | Fuente | Uso |
 |---|---|---|
-| 1 | `docs/specification-definitions.md` | Decisiones aprobadas de Fase 1; prevalece ante diferencias. |
-| 2 | `docs/definitions.md` | Definiciones funcionales y de negocio originales. |
+| 1 | `docs/definitions/specification-definitions.md` | Decisiones aprobadas de Fase 1; prevalece ante diferencias. |
+| 2 | `docs/definitions/analysis-definitions.md` | Definiciones funcionales y de negocio originales. |
 | 3 | `docs/analysis/*` | Evidencia del legado. No aprueba reglas por sí sola. |
-
-> **Nota de árbol de trabajo:** `docs/definitions.md` se cita por su nombre funcional; en el árbol actual su contenido está archivado como `docs/analysis-definitions.md`. El cambio de nombre es preexistente y no fue realizado por esta revisión.
 
 Si una contradicción no puede resolverse con las dos primeras fuentes, se documenta como decisión pendiente y se solicita intervención del usuario. No se completa por suposición.
 
@@ -75,7 +72,7 @@ No incluye:
 - contratos definitivos de DTOs;
 - código C# o JavaScript.
 
-## 3. Cambios principales de la revisión 4
+## 3. Cambios principales de Fase 1
 
 1. **Entidad `Ticket` y tipos.** El requerimiento se llama `Ticket`. Existen dos tipos: `INCIDENT` (problema específico reportado por un área) y `TASK` (problema preexistente o mejora a realizar en un área).
 2. **Modelo en inglés.** Entidades, atributos, estados, roles, permisos y eventos usan nombres en inglés. Ejemplo: `fechaProblema` pasa a `problem_date`; `Tarea` pasa a `Ticket`.
@@ -472,7 +469,7 @@ Sin prescribir implementación React, la interfaz debe:
 
 ## 8. Reglas aprobadas RN-001 a RN-118
 
-> Una regla es aprobada cuando deriva explícitamente de `docs/definitions.md` o de `docs/specification-definitions.md`. Las reglas aprobadas en la segunda ronda están en §9.
+> Una regla es aprobada cuando deriva explícitamente de `docs/definitions/specification-definitions.md`. Las reglas aprobadas en la segunda ronda están en §9.
 
 ### 8.1 Transversales
 
@@ -597,10 +594,10 @@ Sin prescribir implementación React, la interfaz debe:
 | RN-112 | El login acepta usuario o correo; se registra `last_login_at`. | D-38 |
 | RN-113 | La auditoría de negocio se separa de los logs de seguridad; los eventos de seguridad no se exponen por `/audit-events`. | D-39 |
 | RN-114 | El seed crea un `SUPERUSER` inicial sin contraseña utilizable; la cuenta debe establecer contraseña mediante blanqueo/activación antes de operar. | D-28 |
-| RN-115 | El responsable histórico de un cierre se reconstruye desde `TicketTimelineEntry`; no se duplica en `TicketClosure`. | Revisión 4 |
-| RN-116 | La reapertura y la restauración no pueden conservar una asignación inválida; exigen reasignación o desasignación. | Revisión 4 |
-| RN-117 | La eliminación y la restauración se registran como eventos históricos; los campos actuales de `Ticket` sólo reflejan la última operación. | Revisión 4 |
-| RN-118 | `AGENT` puede consultar auditoría de sus tickets asignados; no accede a auditoría global ni de área. | Revisión 4 |
+| RN-115 | El responsable histórico de un cierre se reconstruye desde `TicketTimelineEntry`; no se duplica en `TicketClosure`. | Fase 1 |
+| RN-116 | La reapertura y la restauración no pueden conservar una asignación inválida; exigen reasignación o desasignación. | Fase 1 |
+| RN-117 | La eliminación y la restauración se registran como eventos históricos; los campos actuales de `Ticket` sólo reflejan la última operación. | Fase 1 |
+| RN-118 | `AGENT` puede consultar auditoría de sus tickets asignados; no accede a auditoría global ni de área. | Fase 1 |
 
 ## 9. Reglas aprobadas en la segunda ronda PR-001 a PR-017
 
@@ -661,7 +658,7 @@ Estas reglas quedaron aprobadas por las decisiones D-29 a D-39 y se incorporan a
 
 Leyenda:
 
-- **A** = aprobada explícitamente por `definitions.md` o `specification-definitions.md`.
+- **A** = aprobada explícitamente por `analysis-definitions.md` o `specification-definitions.md`.
 - **P** = pendiente; no aprobada; requiere decisión.
 - **R** = reemplazada por una decisión aprobada.
 - **D** = descartada por contradecir una decisión aprobada.
@@ -780,7 +777,7 @@ Salvo definición expresa en contrario, quedan fuera de esta fase y de la primer
 
 ## 14. Criterios de aceptación funcionales
 
-La Fase 1, revisión 4, se considera aceptada cuando:
+La Fase 1 se considera completa cuando:
 
 1. cada decisión D-01 a D-39 está trazada sin contradicciones;
 2. la entidad central es `Ticket` y existen `INCIDENT` y `TASK`;
@@ -807,4 +804,4 @@ La Fase 1, revisión 4, se considera aceptada cuando:
 
 ## 16. Decisiones
 
-El registro completo está en [`open-decisions.md`](./open-decisions.md). Las decisiones D-01 a D-39 están aprobadas e incorporadas. No quedan decisiones P0/P1/P2 abiertas; la Fase 2 puede iniciarse cuando esta revisión sea aprobada.
+El registro completo está en [`open-decisions.md`](./open-decisions.md). Las decisiones D-01 a D-39 están aprobadas e incorporadas. No quedan decisiones P0/P1/P2 abiertas; la Fase 2 puede iniciarse.

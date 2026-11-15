@@ -1,6 +1,6 @@
 # Decisiones, contradicciones y riesgos residuales
 
-> **Revisión 4.** Las decisiones D-01 a D-39 de `docs/specification-definitions.md` están aprobadas e incorporadas. Las aclaraciones de la Revisión 4 están incorporadas. No quedan decisiones P0/P1/P2 abiertas. Este documento conserva el registro de decisiones, las contradicciones resueltas y los riesgos residuales que no bloquean la especificación.
+> **Fase 1.** Las decisiones D-01 a D-39 de `docs/definitions/specification-definitions.md` están aprobadas e incorporadas. No quedan decisiones P0/P1/P2 abiertas. Este documento conserva el registro de decisiones, las contradicciones resueltas y los riesgos residuales que no bloquean la especificación.
 
 ## 1. Registro de decisiones D-01 a D-39
 
@@ -113,7 +113,7 @@
 - **Impacto:** API y concurrencia.
 
 ### D-28 — Seed inicial
-- **Decisión:** Seed de roles/permisos + un `SUPERUSER` inicial para el desarrollador. Las aclaraciones de la Revisión 4 exigen que se cree sin contraseña utilizable.
+- **Decisión:** Seed de roles/permisos + un `SUPERUSER` inicial para el desarrollador. Las aclaraciones de la Fase 1 exigen que se cree sin contraseña utilizable.
 - **Impacto:** Inicialización y seguridad.
 
 ### D-29 — Dirección del ticket
@@ -160,7 +160,7 @@
 - **Decisión:** La auditoría de negocio se separa de los logs de seguridad; login, logout, intentos fallidos, bloqueos y rate limiting no se exponen por `/audit-events`.
 - **Impacto:** `/audit-events` y `SecurityEvent`.
 
-## 2. Aclaraciones cerradas en la Revisión 4
+## 2. Aclaraciones cerradas en Fase 1
 
 | Tema | Tratamiento |
 |---|---|
@@ -238,4 +238,4 @@ No son decisiones abiertas; no bloquean la Fase 2.
 
 ## 6. Próximo paso
 
-La especificación queda lista para revisión y aprobación. No hay decisiones abiertas que impidan iniciar la Fase 2 cuando el usuario lo autorice.
+La especificación de Fase 1 queda finalizada. No hay decisiones abiertas que impidan iniciar la Fase 2.

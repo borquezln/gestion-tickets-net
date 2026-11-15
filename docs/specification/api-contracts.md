@@ -1,6 +1,6 @@
 # Contratos funcionales de API
 
-> **Fase 1 — Revisión 4.** Contratos resource-oriented, sin código ni DTOs implementados.
+> **Fase 1 — Contratos funcionales de API.**
 > La entidad central es `Ticket`; el modelo y los campos están en inglés. La API usa `snake_case` para los campos de dominio.
 > Las decisiones D-01 a D-39 están incorporadas; no quedan operaciones pendientes.
 
@@ -135,6 +135,7 @@ Límites de primera versión: `page_size` por defecto 20, máximo 100. Ajuste de
 | `422` | Validación de datos. |
 | `429` | Demasiadas solicitudes. |
 | `500` | Error interno. |
+| `503` | Servicio o almacenamiento temporalmente no disponible. |
 
 ### 4.3 Códigos de dominio
 
@@ -168,6 +169,7 @@ Límites de primera versión: `page_size` por defecto 20, máximo 100. Ajuste de
 | `TICKET_RECEIPT_REQUIRED` | Comprobante obligatorio. |
 | `TICKET_RECEIPT_INVALID_TYPE` | Tipo de comprobante no permitido. |
 | `TICKET_RECEIPT_TOO_LARGE` | Comprobante demasiado grande. |
+| `RECEIPT_STORAGE_INTEGRITY_FAILURE` | Existen metadatos del comprobante, pero falta el archivo físico o su checksum no coincide. |
 | `TICKET_VERSION_CONFLICT` | Versión desactualizada. |
 | `TICKET_NOT_EDITABLE` | Estado no permite edición. |
 | `TICKET_TYPE_INVALID` | Tipo distinto de `INCIDENT`/`TASK`. |
@@ -615,7 +617,7 @@ Límites de primera versión: `page_size` por defecto 20, máximo 100. Ajuste de
 | Autorización | `P-RECEIPT_DOWNLOAD`; alcance sobre el ticket. |
 | Query | `closure_id?`; si se omite, se usa el último `TicketClosure` con comprobante. |
 | Salida | Archivo (`application/pdf`), `Content-Disposition: attachment`. |
-| Errores | `404` si no hay comprobante o archivo; `403`/`404` si no tiene alcance. |
+| Errores | `404` si el cierre solicitado no tiene comprobante asociado; `500` (`RECEIPT_STORAGE_INTEGRITY_FAILURE`) si existen metadatos `TicketReceipt` pero falta el archivo físico o su checksum no coincide; `503` si el almacenamiento está temporalmente indisponible; `403`/`404` si no tiene alcance. |
 | Reglas | RN-071 a RN-073. El comprobante pertenece al cierre; se conservan los históricos (D-30). No se audita la descarga (D-22). |
 
 ### 11.14 `GET /api/v1/tickets/{id}/history`

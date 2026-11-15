@@ -1,6 +1,6 @@
 # Ciclo de vida de tickets
 
-> **Fase 1 — Revisión 4.** Basado en `docs/specification-definitions.md` (D-01 a D-39) y las aclaraciones de la Revisión 4.
+> **Fase 1 — Ciclo de vida de tickets.** Basado en `docs/definitions/specification-definitions.md` (D-01 a D-39).
 > La entidad central es `Ticket`. “Tarea” se reemplaza por “ticket” cuando se habla del requerimiento.
 
 ## 1. Tipos de ticket

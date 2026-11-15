@@ -1,6 +1,6 @@
 # Reportes, estadísticas y archivos
 
-> **Fase 1 — Revisión 4.** Criterios de D-08, D-11, D-14, D-22, D-24, D-25, D-30, D-32, D-34, D-35, D-37 y D-39.
+> **Fase 1 — Reportes y archivos.** Criterios de D-08, D-11, D-14, D-22, D-24, D-25, D-30, D-32, D-34, D-35, D-37 y D-39.
 > Los indicadores se definen por población y fecha; no se mezclan “hoy por problema” con “completados por solución”.
 
 ## 1. Decisiones aplicables

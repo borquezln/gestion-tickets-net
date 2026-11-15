@@ -1,6 +1,6 @@
 # Roles, permisos y alcance
 
-> **Fase 1 — Revisión 4.** Basado en `docs/specification-definitions.md` (D-01 a D-39) y las aclaraciones de la Revisión 4.
+> **Fase 1 — Roles, permisos y alcance.** Basado en `docs/definitions/specification-definitions.md` (D-01 a D-39).
 > Este documento distingue permisos de acción de alcance de datos. Un permiso no implica acceso global.
 
 ## 1. Decisiones que gobiernan este documento

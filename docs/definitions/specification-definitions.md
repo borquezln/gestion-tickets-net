@@ -71,7 +71,7 @@
 
 #### D-04 — Semántica de “área operativa”, “área” y “dirección”
 
-- **Contexto:** `definitions.md` habla de “área operativa” (mantenimiento, sistemas) y Q-004 dice que “un área debe ser una dependencia de una dirección”. El legado usa “Área encargada” y “Dirección de la persona afectada”.
+- **Contexto:** `docs/definitions/analysis-definitions.md` habla de “área operativa” (mantenimiento, sistemas) y Q-004 dice que “un área debe ser una dependencia de una dirección”. El legado usa “Área encargada” y “Dirección de la persona afectada”.
 - **Problema:** ¿“Área operativa” es la misma entidad que “Área dependiente de una dirección” o son conceptos distintos? ¿La dirección del ticket es la del área o la del afectado?
 - **Decisión:**
   * Una dirección de un conjunto de áreas.
