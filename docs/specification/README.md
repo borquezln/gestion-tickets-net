@@ -1,13 +1,13 @@
 # Fase 1 — Especificación funcional y diseño del dominio
 
-> **Revisión 4 — actualizada con las decisiones D-01 a D-39 y las aclaraciones de la Revisión 4.**
-> Estado: propuesta para revisión. No se inició la Fase 2, no se escribió código, no se crearon proyectos ASP.NET Core ni React, no se instalaron dependencias y no se modificó el esquema de base de datos ni ningún archivo de `/legacy`.
+> **Fase 1 — Especificación funcional y diseño del dominio.**
+> Estado: Fase 1 finalizada. La especificación funcional está aprobada. No se escribió código, no se crearon proyectos ASP.NET Core ni React, no se instalaron dependencias y no se modificó el esquema de base de datos ni ningún archivo de `/legacy`.
 
 ## 1. Propósito
 
-Transformar el análisis de la Fase 0, `docs/definitions.md` y las decisiones aprobadas de `docs/specification-definitions.md` en una especificación funcional y un diseño de dominio coherentes para una futura API ASP.NET Core y un frontend React.
+Transformar el análisis de la Fase 0, `docs/definitions/analysis-definitions.md` y las decisiones aprobadas de `docs/definitions/specification-definitions.md` en una especificación funcional y un diseño de dominio coherentes para una futura API ASP.NET Core y un frontend React.
 
-Esta revisión incorpora:
+Esta especificación incorpora:
 
 1. **Tickets de tipo Incidente o Tarea.** Un ticket puede ser un `INCIDENT` (problema específico reportado por un área) o un `TASK` (problema preexistente o mejora a realizar en un área).
 2. **Modelo en inglés.** Entidades, atributos, estados, roles, permisos y eventos usan nombres en inglés. Por ejemplo, `fechaProblema` pasa a `problem_date`; la entidad `Tarea` pasa a `Ticket`.
@@ -18,11 +18,9 @@ Esta revisión incorpora:
 
 | Prioridad | Fuente | Uso |
 |---|---|---|
-| 1 | `docs/specification-definitions.md` | Decisiones aprobadas de Fase 1; prevalece ante diferencias. |
-| 2 | `docs/definitions.md` | Definiciones funcionales y de negocio originales. |
+| 1 | `docs/definitions/specification-definitions.md` | Decisiones aprobadas de Fase 1; prevalece ante diferencias. |
+| 2 | `docs/definitions/analysis-definitions.md` | Definiciones funcionales y de negocio originales. |
 | 3 | `docs/analysis/*` | Evidencia del sistema legado. Sólo informa; no aprueba reglas. |
-
-> **Nota de árbol de trabajo:** las definiciones originales se citan como `docs/definitions.md` por su nombre funcional. En el árbol actual ese contenido está archivado como `docs/analysis-definitions.md`; el cambio de nombre es preexistente y no fue realizado por esta revisión.
 
 Si una contradicción no puede resolverse con las dos primeras fuentes, se documenta y se solicita intervención del usuario. No se completa por suposición.
 
@@ -46,8 +44,8 @@ Si una contradicción no puede resolverse con las dos primeras fuentes, se docum
 
 | Prefijo | Significado |
 |---|---|
-| `Q-xxx` | Pregunta o definición de `docs/definitions.md`. |
-| `D-xxx` | Decisión de `docs/specification-definitions.md` (D-01 a D-39). |
+| `Q-xxx` | Pregunta o definición de `docs/definitions/analysis-definitions.md`. |
+| `D-xxx` | Decisión de `docs/definitions/specification-definitions.md` (D-01 a D-39). |
 | `BR-xxx` | Regla del análisis legado. |
 | `RN-xxx` | Regla aprobada en esta especificación. |
 | `PR-xxx` | Regla aprobada en la segunda ronda; se conserva para trazabilidad. |
@@ -60,7 +58,7 @@ Si una contradicción no puede resolverse con las dos primeras fuentes, se docum
 
 | Marca | Significado |
 |---|---|
-| **[A]** | Aprobada explícitamente por `definitions.md` o `specification-definitions.md`. |
+| **[A]** | Aprobada explícitamente por `analysis-definitions.md` o `specification-definitions.md`. |
 | **[P]** | No aprobada; se mantiene fuera del alcance hasta definición. |
 | **[R]** | Reemplazada por una decisión aprobada. |
 | **[D]** | Descartada por contradecir una decisión aprobada. |
@@ -127,7 +125,7 @@ Si una contradicción no puede resolverse con las dos primeras fuentes, se docum
 | D-38 | Login por usuario o correo; se registra `last_login_at`. |
 | D-39 | La auditoría de negocio se separa de los logs de seguridad; los eventos de seguridad no se exponen por `/audit-events`. |
 
-## 7. Criterios de aceptación de la revisión 4
+## 7. Criterios de aceptación de Fase 1
 
 1. Todas las decisiones D-01 a D-39 están reflejadas sin contradicciones.
 2. La entidad central es `Ticket`; existen `INCIDENT` y `TASK`.
@@ -143,7 +141,7 @@ Si una contradicción no puede resolverse con las dos primeras fuentes, se docum
 ## 8. Restricciones respetadas
 
 - `/legacy` no fue modificado.
-- No se modificó el contenido de `docs/definitions.md` (hoy `docs/analysis-definitions.md`) ni de `docs/specification-definitions.md`.
+- No se modificó el contenido de `docs/definitions/analysis-definitions.md` ni de `docs/definitions/specification-definitions.md`.
 - No se escribió C# ni JavaScript.
 - No se crearon proyectos ASP.NET Core ni React.
 - No se instalaron dependencias.
@@ -152,4 +150,4 @@ Si una contradicción no puede resolverse con las dos primeras fuentes, se docum
 
 ## 9. Próximo paso
 
-La documentación queda lista para revisión y aprobación. Una vez aprobada, se podrá iniciar la Fase 2 sin arrastrar decisiones P0/P1/P2 abiertas.
+La documentación de Fase 1 queda finalizada. No quedan decisiones P0/P1/P2 abiertas; Fase 2 puede iniciarse.

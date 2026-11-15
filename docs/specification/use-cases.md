@@ -1,6 +1,6 @@
 # Casos de uso
 
-> **Fase 1 — Revisión 4.** Casos de uso actualizados a `Ticket`, tipos `INCIDENT`/`TASK`, cuatro roles, multi-área, cierres históricos, reapertura y trazabilidad de eliminaciones/restauraciones.
+> **Fase 1 — Casos de uso.** Casos de uso actualizados a `Ticket`, tipos `INCIDENT`/`TASK`, cuatro roles, multi-área, cierres históricos, reapertura y trazabilidad de eliminaciones/restauraciones.
 > Los permisos y alcances se detallan en [`roles-and-permissions.md`](./roles-and-permissions.md); las transiciones en [`task-lifecycle.md`](./task-lifecycle.md).
 > Las decisiones D-01 a D-39 están incorporadas; no quedan casos pendientes.
 
@@ -917,7 +917,7 @@
 **Flujos alternativos:**
 
 - A1. Ticket no eliminado: `409`.
-- A2. Área inactiva: se restaura y se marca para revisión (D-18).
+- A2. Área inactiva: se restaura y se marca para evaluación (D-18).
 - A3. Conflicto de versión: `409`.
 
 **Errores y restricciones:** no se restaura a un estado distinto del previo (D-01).

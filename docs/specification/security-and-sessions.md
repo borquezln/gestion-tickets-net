@@ -1,6 +1,6 @@
 # Seguridad, sesiones y autorización
 
-> **Fase 1 — Revisión 4.** Incorpora D-07, D-14, D-15, D-16, D-22, D-23, D-27, D-28, D-33, D-36, D-37, D-38 y D-39.
+> **Fase 1 — Seguridad, sesiones y autorización.** Incorpora D-07, D-14, D-15, D-16, D-22, D-23, D-27, D-28, D-33, D-36, D-37, D-38 y D-39.
 > No se define implementación concreta de ASP.NET Core; se describen requisitos funcionales y de seguridad.
 
 ## 1. Decisiones aplicables
