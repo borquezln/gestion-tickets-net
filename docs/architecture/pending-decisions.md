@@ -54,3 +54,4 @@
 - Las decisiones [A] de Fase 1 (D-xx/Q-xx) no se modifican aquí.  
 - Las 21 definiciones técnicas están aprobadas: no quedan decisiones técnicas [P] ni [?] abiertas; solo persisten los riesgos R-001, R-004 y R-005.
 - La implementación de cada decisión se materializa en el incremento indicado en "Incremento límite"; la aprobación aquí cubre el diseño.  
+- **F2-I2 implementado (estructura backend, configuración y esqueleto frontend).** PD-010 (Vitest + React Testing Library + jsdom + coverage V8) quedó materializado en F2-I2 según su asignación vigente. No se implementó funcionalidad de negocio ni integración con la API. PostgreSQL, EF Core, entidades, migraciones, autenticación, sesiones y autorización permanecen fuera de F2-I2.

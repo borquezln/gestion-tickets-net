@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GestionTickets.Domain\GestionTickets.Domain.csproj" />
+    <ProjectReference Include="..\GestionTickets.Application\GestionTickets.Application.csproj" />
+    <ProjectReference Include="..\GestionTickets.Infrastructure\GestionTickets.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

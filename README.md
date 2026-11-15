@@ -2,7 +2,7 @@
 
 Reconstrucción del sistema de gestión de tickets y requerimientos de mantenimiento de **gestionDOA** (PHP puro + MySQL), ahora como **ASP.NET Core Web API (C#)** con un frontend **React** independiente.
 
-> **Estado:** Fase 0 y Fase 1 finalizadas. Fase 2 está en curso. La implementación del nuevo sistema todavía no comenzó: el repositorio contiene la documentación aprobada, la documentación arquitectónica en curso y el sistema legado conservado como referencia.
+> **Estado:** Fase 0 y Fase 1 finalizadas. Fase 2 está en curso. La estructura backend ASP.NET Core y el esqueleto frontend (F2-I2) ya están implementados: la solución compila, la API arranca y el frontend ejecuta sus pruebas. La persistencia y la autenticación todavía no comenzaron. El repositorio conserva la documentación aprobada y el sistema legado como referencia.
 
 ## Índice
 
@@ -10,6 +10,8 @@ Reconstrucción del sistema de gestión de tickets y requerimientos de mantenimi
 - [Alcance funcional](#alcance-funcional)
 - [Arquitectura objetivo](#arquitectura-objetivo)
 - [Estructura del repositorio](#estructura-del-repositorio)
+- [Backend: compilación y arranque](#backend-compilación-y-arranque)
+- [Frontend: instalación y comandos](#frontend-instalación-y-comandos)
 - [Documentación](#documentación)
 - [Decisiones funcionales clave](#decisiones-funcionales-clave)
 - [Reglas de trabajo](#reglas-de-trabajo)
@@ -75,6 +77,7 @@ Toda tarea nace en **Pendiente**. La eliminación es lógica y conserva el estad
 ```
 gestion-tickets-net/
 ├── README.md                  # Este documento
+├── .gitignore                 # Ignora bin/, obj/, secretos locales y artefactos
 ├── docs/
 │   ├── definitions/           # Definiciones de Fase 0, Fase 1 y Fase 2
 │   ├── specification/         # Fase 1: especificación funcional aprobada
@@ -89,12 +92,65 @@ gestion-tickets-net/
 │       ├── business-rules.md
 │       ├── legacy-architecture.md
 │       └── open-questions.md
+├── backend/                   # Solución ASP.NET Core
+│   ├── GestionTickets.sln
+│   ├── global.json
+│   ├── Directory.Build.props
+│   ├── src/
+│   │   ├── GestionTickets.Api/
+│   │   ├── GestionTickets.Application/
+│   │   ├── GestionTickets.Domain/
+│   │   └── GestionTickets.Infrastructure/
+│   └── tests/
+│       └── GestionTickets.Api.Tests/
 ├── legacy/                    # Sistema PHP original (sólo referencia, no modificar)
-├── backend/                   # (a crear) ASP.NET Core Web API
-└── frontend/                  # (a crear) aplicación React
+└── frontend/                  # Esqueleto React + TypeScript + Vitest
+    ├── .nvmrc
+    ├── package.json
+    ├── pnpm-lock.yaml
+    ├── tsconfig*.json
+    ├── vite.config.ts
+    └── src/
+        ├── app/
+        ├── features/
+        ├── components/
+        ├── services/
+        ├── hooks/
+        ├── types/
+        ├── styles/
+        └── test/
 ```
 
-> `backend/` y `frontend/` son la estructura prevista. Todavía no existen proyectos ejecutables: no hay comandos de build ni de ejecución en este estado del repositorio.
+### Backend: compilación y arranque
+
+Requisitos: .NET SDK 10.0.403 o un parche posterior de la misma banda (el `global.json` usa `latestPatch`).
+
+```bash
+cd backend
+dotnet restore GestionTickets.sln
+dotnet build GestionTickets.sln
+dotnet test GestionTickets.sln
+dotnet run --project src/GestionTickets.Api --launch-profile https
+```
+
+La API escucha en `https://localhost:5001`. Es un esqueleto de composición: todavía no expone endpoints de negocio. En desarrollo, el certificado debe confiarse con `dotnet dev-certs https --trust`.
+
+No hay conexión a PostgreSQL, entidades, migraciones, autenticación ni autorización en este estado. Esos temas pertenecen a incrementos posteriores de Fase 2.
+
+### Frontend: instalación y comandos
+
+Requisitos: Node.js 24 LTS o superior (declarado en `frontend/.nvmrc` y `engines`) y pnpm vía `corepack enable`.
+
+```bash
+cd frontend
+pnpm install --frozen-lockfile
+pnpm build
+pnpm test
+pnpm test:coverage
+pnpm dev
+```
+
+El servidor de desarrollo escucha en `https://localhost:5173` con certificado autofirmado (`@vitejs/plugin-basic-ssl`). El frontend es un esqueleto: no incluye funcionalidad de negocio, cliente HTTP ni archivos `.env*`; esos elementos pertenecen a un incremento posterior, todavía sin asignación.
 
 ## Documentación
 
@@ -165,7 +221,7 @@ Resumen de las definiciones aprobadas que condicionan el diseño:
 
 Fase 2 está en curso. Las decisiones arquitectónicas, el stack definitivo y el registro de decisiones técnicas están cerrados; persisten los riesgos operativos declarados, que no bloquean los pasos siguientes.
 
-Queda como trabajo futuro implementar la estructura de la solución ASP.NET Core y su configuración, la persistencia con PostgreSQL y EF Core, las entidades y migraciones, la autenticación y las sesiones, la autorización y la seguridad, y el entorno de desarrollo, las pruebas y la documentación técnica.
+F2-I2 (estructura de la solución ASP.NET Core, configuración y esqueleto frontend) está implementado: existen los cuatro proyectos backend, las referencias dirigidas al dominio, `global.json`, la configuración tipada de CORS, el arranque HTTPS y las pruebas de compilación/arranque. También existe el esqueleto frontend con Vite, React, TypeScript y Vitest + React Testing Library + jsdom + coverage V8 (PD-010). Quedan pendientes la persistencia con PostgreSQL y EF Core, las entidades y migraciones, la autenticación y las sesiones, la autorización y la seguridad, la integración del frontend con la API y el entorno de desarrollo completo.
 
 ---
 

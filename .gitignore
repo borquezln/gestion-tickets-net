@@ -1,0 +1,30 @@
+# .NET
+bin/
+obj/
+TestResults/
+*.trx
+*.coverage
+*.coverage.xml
+coverage/
+*.user
+*.suo
+.vs/
+
+# IDEs locales
+.idea/
+*.DotSettings.user
+
+# Frontend
+node_modules/
+dist/
+
+# Entornos y secretos locales
+.env
+.env.local
+.env.*.local
+*.pfx
+*.p12
+
+# Logs y diffs
+*.log
+*.diff

@@ -140,6 +140,7 @@
 ## Estado del registro
 
 - 21/21 definiciones aprobadas.
-- F2-I1 está cerrado; la Fase 2 continúa sin implementación iniciada.
+- F2-I1 está cerrado y F2-I2 (estructura backend, configuración y esqueleto frontend) está implementado; la Fase 2 continúa con la persistencia y los incrementos posteriores.
+- PD-010 (Vitest + React Testing Library + jsdom + coverage V8) quedó materializado en F2-I2 junto con el esqueleto mínimo del frontend, sin funcionalidad de negocio ni integración con la API.
 - Riesgos cerrados por estas decisiones: R-002 (PD-015) y R-003 (PD-016). Los riesgos R-001, R-004 y R-005 permanecen.
 - Las decisiones con límite posterior a F2-I1 se implementan en los incrementos indicados; la aprobación aquí cubre el diseño completo.
